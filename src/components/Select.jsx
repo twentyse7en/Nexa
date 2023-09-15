@@ -1,11 +1,4 @@
-import { useState } from 'react';
 import ReactSelect from 'react-select'
-
-const options = [
-  { value: 'day', label: 'Day' },
-  { value: 'week', label: 'Week' },
-  { value: 'month', label: 'Month' }
-]
 
 // import { ReactComponent as CalendarIcon } from '../assets/calendar.svg';
 // import { ReactComponent as DownArrowIcon } from '../assets/downArrow.svg';
@@ -18,10 +11,8 @@ const options = [
 //     </div>
 // )
 
-const Select = () => {
-    const [selectedOption, setSelectedOption] = useState(options[0]);
-
-    return <ReactSelect value={selectedOption} options={options} onChange={(val) => setSelectedOption(val)} />
+const Select = ({ value, options, onChange }) => {
+    return <ReactSelect value={value} options={options} onChange={onChange} />
 }
 
 export default Select;

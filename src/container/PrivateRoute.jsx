@@ -1,16 +1,22 @@
-import {  Route, Routes } from 'react-router-dom';
+import {  Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
 
 
 const PrivateRoute = () => {
+  const isLoggedIn = true;
+
+  if (!isLoggedIn) {
+    return <Navigate to={'/login'} />;
+  }
   return (
     <div className='flex'>
       <Navbar/>
-      <div className="h-[100vh] bg-[#F4F3FA] flex-1">
-    <Routes>
-      <Route path={'/dashboard'} element={<Dashboard />}/>
-    </Routes>
+      <div className="h-[100vh] bg-[#F4F3FA] flex-1 pt-8 px-12">
+        <Routes>
+          <Route path={'/'} element={<Dashboard />} />
+          <Route path={'/dashboard'} element={<Dashboard />}/>
+        </Routes>
     </div>
     </div>
   )
