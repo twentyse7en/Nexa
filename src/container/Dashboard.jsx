@@ -1,9 +1,9 @@
 import MoneyFlow from "../components/MoneyFlow";
-
 import { ReactComponent as Shops } from "../assets/shop.svg";
 import { ReactComponent as House } from "../assets/house.svg";
 import SpendingPie from "../components/SpendingPie";
 import SpendCards from "../components/SpendCard";
+import AccountInfoCard from "../components/AccountInfoCard";
 
 const Dashboard = () => {
   const userName = "Linette";
@@ -16,7 +16,7 @@ const Dashboard = () => {
       </p>
       <div className="flex-1 h-[45%]">
         <div className="flex gap-x-10 flex-1 mb-6">
-          <div className="border-4 flex-1"></div>
+        <div className="flex-1"><AccountInfoCard/></div>
           <MoneyFlow />
         </div>
         <div className="flex h-[45%] gap-x-8">
