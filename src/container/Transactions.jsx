@@ -5,6 +5,8 @@ import { ReactComponent as Person } from "../assets/person.svg";
 import { ReactComponent as Shopping } from "../assets/shopping.svg";
 import { ReactComponent as Drinks } from "../assets/foodDrink.svg";
 
+import { tableData } from "./constants";
+
 const Transactions = () => {
   const TYPE_OPTIONS = [
     { label: "Credit/Debit", value: "both" },
@@ -29,7 +31,9 @@ const Transactions = () => {
   const handleMonthFilterChange = (value) => setMonthFilter(value);
   const handleTypeFilterChange = (value) => setTypeFilter(value);
   const handleCategoryFilterChange =(value)=>setCategoryFilter(value)
-
+  console.log({
+    monthFilter, typeFilter, categoryFilter
+  });
   const tableHeader = [
     { header: "Reciever", accessor: "name" },
     { header: "Type", accessor: "type" },
@@ -37,81 +41,6 @@ const Transactions = () => {
     { header: "Date", accessor: "date" },
     { header: "Amount", accessor: "amount" },
     { header: "Bank", accessor: "bank" },
-  ];
-
-  const tableData = [
-    {
-      name: "Ram Kumar",
-      category: "Bank Transfer",
-      type: "credit",
-      date: "12-12-2023",
-      amount: "Rs.1504",
-      bank: "SBI",
-    },
-    {
-      name: "Lulu international",
-      category: "Shopping",
-      type: "Debit",
-      date: "12-12-2023",
-      amount: "Rs.1256",
-      bank: "ICICI",
-    },
-    {
-      name: "ElectroMen Market",
-      category: "Shopping",
-      type: "Debit",
-      date: "01-12-2023",
-      amount: "Rs.2604",
-      bank: "SBI",
-    },
-    {
-      name: "Paragon",
-      category: "Food",
-      type: "debit",
-      date: "12-01-2023",
-      amount: "Rs.1134",
-      bank: "SBI",
-    },
-    {
-      name: "Chiyang",
-      category: "Food",
-      type: "Debit",
-      date: "15-07-2023",
-      amount: "Rs.834",
-      bank: "SBI",
-    },
-    {
-      name: "Jaison",
-      category: "Bank Transfer",
-      type: "Credit",
-      date: "11-10-2023",
-      amount: "Rs.1300",
-      bank: "SBI",
-    },
-    {
-      name: "Jaison",
-      category: "Bank Transfer",
-      type: "Credit",
-      date: "11-10-2023",
-      amount: "Rs.1230",
-      bank: "ICICI",
-    },
-    {
-      name: "Just tiffins",
-      category: "Food",
-      type: "Debit",
-      date: "11-10-2023",
-      amount: "Rs.1000",
-      bank: "SBI",
-    },
-    {
-      name: "Kumar varma",
-      category: "Bank Transfer",
-      type: "Credit",
-      date: "11-10-2023",
-      amount: "Rs.534",
-      bank: "ICICI",
-    },
   ];
 
   const icons = {
@@ -138,6 +67,19 @@ const Transactions = () => {
     }
 
     return options;
+  }
+
+  const getTableData = () => {
+    if (tableData) {
+      return tableData[monthFilter.value].filter((t) => {
+        if (typeFilter.value == 'both') return true;
+        return t.type == typeFilter.value;
+      }).filter((t) => {
+        if (categoryFilter.value == 'all') return true;
+        return t.category == categoryFilter.value;
+      }) || [];
+    }
+    return [];
   }
 
   return (
@@ -184,7 +126,7 @@ const Transactions = () => {
               ))}
             </tr>
 
-            {tableData.map((item, index) => (
+            {getTableData().map((item, index) => (
               <tr
                 key={`${index}_${item.name}`}
                 className={`${
