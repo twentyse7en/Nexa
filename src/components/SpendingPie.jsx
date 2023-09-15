@@ -67,7 +67,7 @@ const SpendingPie = () => {
     return (
         <div className="p-6 rounded-3xl shadow-card  w-[550px] bg-white">
             <div className="flex justify-between items-center">
-                <h2 className="text-lg text font-black mr-4">All Expenses</h2>
+                <h2 className="text-lg text font-semibold mr-4 text-primary">All Expenses</h2>
                 <Select value={filterOptions} options={FILTER_OPTIONS} onChange={handleFilterSelection} />
             </div>
             <div className="w-[200px] h-[200px] mx-auto mt-10">
@@ -78,7 +78,7 @@ const SpendingPie = () => {
                 LABELS.map((label, index) => {
                   return (
                     <div className="flex items-center gap-x-2" key={label}>
-                      <div className="w-6 h-2 rounded-full" style={{backgroundColor: BG_COLOR[index]}} />
+                      <div className="w-3 h-2 rounded-full" style={{backgroundColor: BG_COLOR[index]}} />
                       <p className="text-secondary text-xs">{label}</p>
                   </div>
                   )

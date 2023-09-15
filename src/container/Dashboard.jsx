@@ -24,26 +24,26 @@ const Dashboard = () => {
           <SpendingPie />
           <div className="grid grid-cols-2 w-[450px] gap-5">
             <SpendCards
-              total={2016}
-              category={"Shopping"}
+              total={4521}
+              category={"Food"}
               logo={<Shops />}
-              percentage={25}
+              percentage={43}
             />
             <SpendCards
-              total={2016}
-              category={"Renovation"}
+              total={1500}
+              category={"Fuel"}
               logo={<House />}
               percentage={25}
             />
             <SpendCards
-              total={2016}
+              total={6259}
               category={"Shopping"}
               logo={<Shops />}
               percentage={25}
             />
             <SpendCards
-              total={2016}
-              category={"Shopping"}
+              total={1250}
+              category={"Entertainment"}
               logo={<Shops />}
               percentage={25}
             />

@@ -7,7 +7,7 @@ const AccountInfoCard = () => {
   return (
     
     <div
-      className="w-full rounded-3xl py-6 shadow-card flex px-10 h-full bg-white"
+      className="w-full rounded-2xl py-6 shadow-card flex px-10 h-full bg-white"
       style={{ background: "linear-gradient(180deg, #FFF 0%, #FFF 100%);" }}
     >
         

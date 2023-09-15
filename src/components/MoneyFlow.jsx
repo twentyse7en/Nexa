@@ -68,8 +68,8 @@ const values = Array.from({length: 31}, () => getRandomInt(4000, 10000));
         tension: 0.4,
         label: 'Dataset 1',
         data: values,
-        borderColor: '#00B3FF',
-        backgroundColor: '#00B3FF',
+        borderColor: '#163172',
+        backgroundColor: '#163172',
       }
     ],
   };
@@ -96,9 +96,9 @@ const MoneyFlow = () => {
     const handleFilterChange = (value) => setSelectedFilter(value);
 
     return (
-        <div className="shadow-card bg-white rounded-3xl p-6">
-                <div className="flex justify-between items-center mb-5">
-                    <h2 className="text-lg"> Money Flow</h2>
+        <div className="shadow-card bg-white rounded-2xl p-6 text-primary">
+                <div className="flex justify-between items-center mb-5 mx-3">
+                    <h2 className="font-semibold text-xl"> Money Flow</h2>
                     <Select value={selectedFilter} options={FILTER_OPTIONS} onChange={handleFilterChange} />
                 </div>
                 <div className="w-[650px]">
