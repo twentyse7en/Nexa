@@ -1,6 +1,8 @@
 import MoneyFlow from "../components/MoneyFlow";
-import { ReactComponent as Shops } from "../assets/shop.svg";
-import { ReactComponent as House } from "../assets/house.svg";
+import { ReactComponent as FoodIcon } from "../assets/food.svg";
+import { ReactComponent as FuelIcon } from "../assets/fuel.svg";
+import { ReactComponent as ShoppingIcon } from "../assets/shoppingBag.svg";
+import { ReactComponent as EntertainmentIcon } from "../assets/xbox.svg";
 import SpendingPie from "../components/SpendingPie";
 import SpendCards from "../components/SpendCard";
 import AccountInfoCard from "../components/AccountInfoCard";
@@ -26,26 +28,26 @@ const Dashboard = () => {
             <SpendCards
               total={4521}
               category={"Food"}
-              logo={<Shops />}
-              percentage={43}
+              logo={<FoodIcon />}
+              percentage={29}
             />
             <SpendCards
               total={1500}
               category={"Fuel"}
-              logo={<House />}
-              percentage={25}
+              logo={<FuelIcon className="w-7 h-7" />}
+              percentage={14}
             />
             <SpendCards
               total={6259}
               category={"Shopping"}
-              logo={<Shops />}
-              percentage={25}
+              logo={<ShoppingIcon />}
+              percentage={38}
             />
             <SpendCards
               total={1250}
               category={"Entertainment"}
-              logo={<Shops />}
-              percentage={25}
+              logo={<EntertainmentIcon />}
+              percentage={10}
             />
           </div>
           <div className="flex-1">

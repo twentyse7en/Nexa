@@ -58,21 +58,7 @@ ChartJS.register(
     max = Math.floor(max); // Round down the maximum value
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-const values = Array.from({length: 31}, () => getRandomInt(4000, 10000));
- values[14] = 65;
 
-  export const data = {
-    labels,
-    datasets: [
-      {
-        tension: 0.4,
-        label: 'Dataset 1',
-        data: values,
-        borderColor: '#163172',
-        backgroundColor: '#163172',
-      }
-    ],
-  };
 
 function generateMonthOptions() {
     const today = new Date();
@@ -93,7 +79,25 @@ function generateMonthOptions() {
 
 const MoneyFlow = () => {
     const [selectedFilter, setSelectedFilter] = useState(FILTER_OPTIONS[0]);
-    const handleFilterChange = (value) => setSelectedFilter(value);
+    const [spend, setSpend] = useState(() => Array.from({length: 31}, () => getRandomInt(500, 10000)));
+
+    const data = {
+      labels,
+      datasets: [
+        {
+          tension: 0.4,
+          label: 'Dataset 1',
+          data: spend,
+          borderColor: '#163172',
+          backgroundColor: '#163172',
+        }
+      ],
+    };
+
+    const handleFilterChange = (value) => {
+      setSpend(() => Array.from({length: 31}, () => getRandomInt(500, 10000)));
+      setSelectedFilter(value);
+    }
 
     return (
         <div className="shadow-card bg-white rounded-2xl p-6 text-primary">

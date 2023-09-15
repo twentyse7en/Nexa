@@ -20,15 +20,13 @@ const LABELS = [
   'Entertainment',
 ]
 
-const data = {
-    labels: LABELS,
-    datasets: [{
-      label: 'Spending: ',
-      data: [300, 50, 100, 400],
-      backgroundColor: BG_COLOR,
-      hoverOffset: 4
-    }]
-  };
+function getRandomInt(min, max) {
+  min = Math.ceil(min); // Round up the minimum value
+  max = Math.floor(max); // Round down the maximum value
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 
 
   const options = {
@@ -63,7 +61,22 @@ const SpendingPie = () => {
     ];
 
     const [filterOptions, setFilterOptions] = useState(FILTER_OPTIONS[2])
-    const handleFilterSelection = (val) => setFilterOptions(val);
+    const generateData = () => Array.from({length: 4}, () => getRandomInt(500, 10000))
+    const [spend, setSpend] = useState(generateData)
+    const data = {
+      labels: LABELS,
+      datasets: [{
+        label: 'Spending: ',
+        data: spend,
+        backgroundColor: BG_COLOR,
+        hoverOffset: 4
+      }]
+    };
+    const handleFilterSelection = (val) => {
+      setSpend(generateData())
+      setFilterOptions(val);
+    }
+  
     return (
         <div className="p-6 rounded-3xl shadow-card  w-[550px] bg-white">
             <div className="flex justify-between items-center">

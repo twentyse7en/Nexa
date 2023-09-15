@@ -54,7 +54,7 @@ const Navbar = () => {
 
   return (
     <div className="w-[13%] h-[100vh] bg-white left-0 top-0 rounded-r-[26px]  py-7 px-6 ">
-      <div className="text-primary text-center text-2xl font-extrabold mt-5">NEXA.Ai</div>
+      <div className="text-primary text-center text-[35px] font-extrabold mt-5">NEXA.Ai</div>
       <div className="flex flex-col justify-between h-[90%]">
         <div className="flex flex-col gap-5 pt-[73px]">
           {menuItems.map((item) =>
