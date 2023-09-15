@@ -7,7 +7,6 @@ const Dashboard = () => {
       <SpendingPie />
     </section>
   );
-}
+};
 
 export default Dashboard;
-
