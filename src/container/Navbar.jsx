@@ -15,6 +15,21 @@ const Navbar = () => {
       headIcon: <Transaction />,
       title: "Transactions",
       href: "/transactions",
+    },
+    {
+      headIcon: <Transaction />,
+      title: "Insights",
+      href: "/transactions",
+    },
+    {
+      headIcon: <Transaction />,
+      title: "Investments",
+      href: "/transactions",
+    },
+    {
+      headIcon: <Transaction />,
+      title: "Offers",
+      href: "/transactions",
     }
   ];
   const currentPath = useLocation().pathname;
@@ -43,12 +58,21 @@ const Navbar = () => {
           )}
         </div>
 
-        <button className="flex items-center cursor-pointer hover:bg-[#E4E3FF] hover:text-primary text-[#A1A0BD] px-7 py-4 gap-4 rounded-md">
-          <div>
-            <LeftArrow />
-          </div>
-          <div className="font-bold">Logout</div>
-        </button>
+        <div>
+          <button className="flex items-center cursor-pointer hover:bg-[#E4E3FF] hover:text-primary text-[#A1A0BD] px-7 py-4 gap-4 rounded-md">
+            <div>
+              <LeftArrow />
+            </div>
+            <div className="font-bold">Contact us</div>
+          </button>
+          <button className="flex items-center cursor-pointer hover:bg-[#E4E3FF] hover:text-primary text-[#A1A0BD] px-7 py-4 gap-4 rounded-md">
+            <div>
+              <LeftArrow />
+            </div>
+            <div className="font-bold">Logout</div>
+          </button>
+        </div>
+
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const AccountInfoCard = () => {
         <div className="cursor-pointer">
           <LeftArrow />
         </div>
-        <BankCard accountType={'Savings account'} bankName={'ICICI BANK'} endNumbers={'2 7 8 9'} startNumbers={'4 7 5 8'}/>
+        <BankCard accountType={'Debit Card'} bankName={'SBI'} endNumbers={'2 7 8 9'} startNumbers={'4 7 5 8'}/>
         <div className="cursor-pointer">
           <RightArrow />
         </div>

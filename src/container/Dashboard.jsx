@@ -4,6 +4,7 @@ import { ReactComponent as House } from "../assets/house.svg";
 import SpendingPie from "../components/SpendingPie";
 import SpendCards from "../components/SpendCard";
 import AccountInfoCard from "../components/AccountInfoCard";
+import SuggestionCard from "../components/SuggestionCard";
 
 const Dashboard = () => {
   const userName = "Linette";
@@ -20,7 +21,7 @@ const Dashboard = () => {
           <MoneyFlow />
         </div>
         <div className="flex h-[45%] gap-x-8">
-          <div className="flex-1 border-2">space</div>
+          <SpendingPie />
           <div className="grid grid-cols-2 w-[450px] gap-5">
             <SpendCards
               total={2016}
@@ -47,7 +48,9 @@ const Dashboard = () => {
               percentage={25}
             />
           </div>
-          <SpendingPie />
+          <div className="flex-1">
+            <SuggestionCard />
+          </div>
         </div>
       </div>
     </section>
