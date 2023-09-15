@@ -97,7 +97,7 @@ const MoneyFlow = () => {
 
     return (
         <div className="shadow-card bg-white rounded-3xl p-6">
-                <div className="flex justify-between items-center mt-3 mb-5">
+                <div className="flex justify-between items-center mb-5">
                     <h2 className="text-lg"> Money Flow</h2>
                     <Select value={selectedFilter} options={FILTER_OPTIONS} onChange={handleFilterChange} />
                 </div>

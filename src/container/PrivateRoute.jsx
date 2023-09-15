@@ -1,6 +1,7 @@
 import {  Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
+import Transactions from './Transactions';
 
 
 const PrivateRoute = () => {
@@ -16,6 +17,7 @@ const PrivateRoute = () => {
         <Routes>
           <Route path={'/'} element={<Dashboard />} />
           <Route path={'/dashboard'} element={<Dashboard />}/>
+          <Route path={'/transactions'} element={<Transactions />} />
         </Routes>
     </div>
     </div>
