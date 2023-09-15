@@ -65,7 +65,7 @@ const SpendingPie = () => {
     const [filterOptions, setFilterOptions] = useState(FILTER_OPTIONS[2])
     const handleFilterSelection = (val) => setFilterOptions(val);
     return (
-        <div className="p-6 rounded-3xl shadow-card  w-[500px] bg-white">
+        <div className="p-6 rounded-3xl shadow-card  w-[550px] bg-white">
             <div className="flex justify-between items-center">
                 <h2 className="text-lg text font-black mr-4">All Expenses</h2>
                 <Select value={filterOptions} options={FILTER_OPTIONS} onChange={handleFilterSelection} />

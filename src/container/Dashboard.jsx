@@ -2,47 +2,52 @@ import MoneyFlow from "../components/MoneyFlow";
 
 import { ReactComponent as Shops } from "../assets/shop.svg";
 import { ReactComponent as House } from "../assets/house.svg";
-import { ReactComponent as Movies } from "../assets/Entertainment.svg";
-import { ReactComponent as Travel } from "../assets/Travel.svg";
 import SpendingPie from "../components/SpendingPie";
+import SpendCards from "../components/SpendCard";
 
 const Dashboard = () => {
-  const SpendCards = (Percentage, category, logo, total) => {
-    return (
-      <div className="bg-white w-[160px] h-[200px] rounded-[28px] px-6 py-6">
-        <div className=" text-2xl font-semibold">{Percentage}</div>
-        <div className="text-[#979699] text-sm font-medium">₹{total}</div>
-        <div className="rounded-full flex items-center justify-st w-16 h-16">
-          <div className="h-5">{logo}</div>
-        </div>
-        <div>
-          <div className="text-primary text-base capitalize font-bold">
-            {category}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const userName = 'Linette';
+  const userName = "Linette";
 
   return (
     <section className="flex flex-col h-full">
       <h1 className="text-4xl mb-2"> Hi, {userName}! </h1>
-      <p className="text-secondary mb-8">welcome back, track what you are spending</p>
-      <div className="border-2 flex-1">
-      <div className="flex gap-x-10 h-[45%] mb-6">
+      <p className="text-secondary mb-3">
+        welcome back, track what you are spending
+      </p>
+      <div className="flex-1 h-[45%]">
+        <div className="flex gap-x-10 flex-1 mb-6">
           <div className="border-4 flex-1"></div>
-          <SpendingPie />
-        </div>
-        <div className="flex h-[50%]">
-          <div className="flex flex-wrap w-[500px] gap-5 flex-1">
-            <div>{SpendCards("55%", "Shopping", <Shops />, "2016")}</div>
-            <div>{SpendCards("75%", "Renovation", <House/>, "1500")}</div>
-            <div>{SpendCards("25%", "Entertainment", <Movies />, "1116")}</div>
-            <div>{SpendCards("45%", "Travel", <Travel />, "2156")}</div>
-          </div>
           <MoneyFlow />
+        </div>
+        <div className="flex h-[45%] gap-x-8">
+          <div className="flex-1 border-2">space</div>
+          <div className="grid grid-cols-2 w-[450px] gap-5">
+            <SpendCards
+              total={2016}
+              category={"Shopping"}
+              logo={<Shops />}
+              percentage={25}
+            />
+            <SpendCards
+              total={2016}
+              category={"Renovation"}
+              logo={<House />}
+              percentage={25}
+            />
+            <SpendCards
+              total={2016}
+              category={"Shopping"}
+              logo={<Shops />}
+              percentage={25}
+            />
+            <SpendCards
+              total={2016}
+              category={"Shopping"}
+              logo={<Shops />}
+              percentage={25}
+            />
+          </div>
+          <SpendingPie />
         </div>
       </div>
     </section>

@@ -1,7 +1,59 @@
 import { QRCodeSVG } from "qrcode.react";
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import  Chart from '../assets/chart.png'
 
+const apiCall = (endpoint, apiConfig = {}) => {
+  return fetch(`https://7603-103-181-238-106.ngrok-free.app/api/${endpoint}`, {
+    method: 'get',
+    headers: new Headers({
+      "ngrok-skip-browser-warning": "69420",
+    }),
+    ...apiConfig
+  }).then((data) => {
+    return data.json()
+  })
+}
+
 const Login = () => {
+  const [sessionId, setSessionId] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    apiCall('auth/web_qrcode').then((data) => {
+      setSessionId(data.sessionId)
+    });
+  }, []);
+
+  useEffect(() => {
+    if (sessionId) {
+      const id = setInterval(() => {
+        apiCall('auth/web_login', {
+          method: "post",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            sessionId
+          })
+        })
+        .then(handleLogin);
+      }, 1000)
+
+      const handleLogin = (data) => {
+        const { session } = data;
+        const { status, user_id } = session;
+        if (status === 'ACTIVE') {
+          clearInterval(id);
+          localStorage.setItem('userId', user_id);
+          navigate('/dashboard')
+        }
+      };
+
+      return () => clearInterval(id);
+    }
+  }, [sessionId])
+
   return (
   <div className="bg-[#1E56A0] w-[100vw] h-[100vh] flex justify-center items-center">
     <div className="w-[35%] h-[400px] bg-[#163172] rounded-lg text-white py-8 flex">
@@ -13,7 +65,7 @@ const Login = () => {
       <div className="w-1/2 flex flex-col items-center justify-center">
         <div className="flex items-center justify-center border-8">
             <QRCodeSVG
-            value={"afsdfsdfdsf"}
+            value={sessionId}
             size={140}
             bgColor={"#ffffff"}
             fgColor={"#000000"}
