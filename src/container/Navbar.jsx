@@ -15,12 +15,7 @@ const Navbar = () => {
       headIcon: <Transaction />,
       title: "Transactions",
       href: "/transactions",
-    },
-    {
-      headIcon: <Chat />,
-      title: "Chat",
-      href: "/chat",
-    },
+    }
   ];
   const currentPath = useLocation().pathname;
 

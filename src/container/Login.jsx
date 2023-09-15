@@ -1,3 +1,4 @@
+import { QRCodeSVG } from "qrcode.react";
 import  Chart from '../assets/chart.png'
 
 const Login = () => {
@@ -10,7 +11,14 @@ const Login = () => {
         <img src={Chart}/>
       </div>
       <div className="w-1/2 flex flex-col items-center justify-center">
-        <div className="w-[160px] h-[160px] bg-white  px-6 "></div>
+        <div className="flex items-center justify-center border-8">
+            <QRCodeSVG
+            value={"afsdfsdfdsf"}
+            size={140}
+            bgColor={"#ffffff"}
+            fgColor={"#000000"}
+          />
+        </div>
         <div className="font-medium text-base leading-5 pt-4">Log in with QR code</div>
         <div className="font-normal text-xs leading-4 pt-3 text-center w-[180px] text-[#A5A6D9]">Scan this with nexa mobile app to login and see a detailed view of your finances</div>
       </div>
