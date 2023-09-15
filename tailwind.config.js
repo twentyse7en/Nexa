@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#4C49ED',
+        'primary': '#163172',
         'secondary': '#A29EBC'
       },
       boxShadow: {

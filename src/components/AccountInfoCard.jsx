@@ -27,7 +27,7 @@ const AccountInfoCard = () => {
         <div className="text-sm font-normal text-[#AEAEAE] text-right">
           Current balance
         </div>
-        <div className="text-lg font-normal leading-9  text-[#439A86] pt-5 text-right">
+        <div className="text-lg font-semibold leading-9  text-[#439A86] pt-5 text-right">
           ₹ 44,556
         </div>
         <div className="text-sm font-normal text-[#AEAEAE] text-right">

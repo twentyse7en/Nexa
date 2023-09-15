@@ -4,7 +4,7 @@ import { ReactComponent as MasterCard } from "../assets/mastercard.svg";
 
 const BankCard = ({ bankName, accountType, startNumbers, endNumbers }) => {
   return (
-    <div className=" h-[247px] w-[340px] bg-[#202a50] rounded-[26px] py-5 px-6 relative">
+    <div className=" h-[247px] bg-[#202a50] rounded-[26px] py-5 px-6 relative">
       <div className="text-white font-bold text-base gap-x-2 flex items-center">
         <SbiIcon className="h-4 w-4"/>
         <p className="mt-1">

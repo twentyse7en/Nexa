@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <section className="flex flex-col h-full">
-      <h1 className="text-4xl mb-2"> Hi, {userName}! </h1>
+      <h1 className="text-4xl mb-2 font-semibold"> Hi, {userName}! </h1>
       <p className="text-secondary mb-3">
         welcome back, track what you are spending
       </p>
