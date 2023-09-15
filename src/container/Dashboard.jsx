@@ -2,7 +2,7 @@ import { ReactComponent as Shops } from "../assets/shop.svg";
 import { ReactComponent as House } from "../assets/house.svg";
 import { ReactComponent as Movies } from "../assets/Entertainment.svg";
 import { ReactComponent as Travel } from "../assets/Travel.svg";
-
+import SpendingPie from "../components/SpendingPie";
 
 const Dashboard = () => {
   const SpendCards = (Percentage, category, logo, total) => {
@@ -24,13 +24,13 @@ const Dashboard = () => {
 
   return (
     <div>
-      Dashboard
       <div className="flex flex-wrap w-[500px] gap-5">
       <div>{SpendCards("55%", "Shopping", <Shops />, "2016")}</div>
       <div>{SpendCards("75%", "Renovation", <House/>, "1500")}</div>
       <div>{SpendCards("25%", "Entertainment", <Movies />, "1116")}</div>
       <div>{SpendCards("45%", "Travel", <Travel />, "2156")}</div>
       </div>
+      <SpendingPie />
     </div>
   );
 };
