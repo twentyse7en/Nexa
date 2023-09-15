@@ -1,6 +1,11 @@
+import SpendingPie from "../components/SpendingPie";
+
 const Dashboard = () => {
   return (
-    <h1> Dashboard </h1>
+    <section>
+      <h1> Dashboard </h1>
+      <SpendingPie />
+    </section>
   );
 }
 
