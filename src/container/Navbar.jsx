@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-[15%] h-[100vh] bg-white left-0 top-0 rounded-r-[26px]  py-7 px-6 ">
+    <div className="w-[17%] h-[100vh] bg-white left-0 top-0 rounded-r-[26px]  py-7 px-6 ">
       <div className="text-primary text-center">NEXA</div>
       <div className="flex flex-col justify-between h-[90%]">
 
