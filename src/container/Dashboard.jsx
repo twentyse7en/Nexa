@@ -1,3 +1,5 @@
+import MoneyFlow from "../components/MoneyFlow";
+
 import { ReactComponent as Shops } from "../assets/shop.svg";
 import { ReactComponent as House } from "../assets/house.svg";
 import { ReactComponent as Movies } from "../assets/Entertainment.svg";
@@ -22,16 +24,28 @@ const Dashboard = () => {
     );
   };
 
+  const userName = 'Linette';
+
   return (
-    <div>
-      <div className="flex flex-wrap w-[500px] gap-5">
-      <div>{SpendCards("55%", "Shopping", <Shops />, "2016")}</div>
-      <div>{SpendCards("75%", "Renovation", <House/>, "1500")}</div>
-      <div>{SpendCards("25%", "Entertainment", <Movies />, "1116")}</div>
-      <div>{SpendCards("45%", "Travel", <Travel />, "2156")}</div>
+    <section className="flex flex-col h-full">
+      <h1 className="text-4xl mb-2"> Hi, {userName}! </h1>
+      <p className="text-secondary mb-8">welcome back, track what you are spending</p>
+      <div className="border-2 flex-1">
+      <div className="flex gap-x-10 h-[45%] mb-6">
+          <div className="border-4 flex-1"></div>
+          <SpendingPie />
+        </div>
+        <div className="flex h-[50%]">
+          <div className="flex flex-wrap w-[500px] gap-5 flex-1">
+            <div>{SpendCards("55%", "Shopping", <Shops />, "2016")}</div>
+            <div>{SpendCards("75%", "Renovation", <House/>, "1500")}</div>
+            <div>{SpendCards("25%", "Entertainment", <Movies />, "1116")}</div>
+            <div>{SpendCards("45%", "Travel", <Travel />, "2156")}</div>
+          </div>
+          <MoneyFlow />
+        </div>
       </div>
-      <SpendingPie />
-    </div>
+    </section>
   );
 };
 
