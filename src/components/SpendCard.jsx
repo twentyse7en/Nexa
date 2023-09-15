@@ -1,6 +1,6 @@
 const SpendCards = ({ percentage, category, logo, total }) => {
     return (
-      <div className="bg-white rounded-[28px] px-6 py-6 flex flex-col justify-between">
+      <div className="text-primary bg-white rounded-[28px] px-6 py-6 flex flex-col justify-between shadow-card">
         <div>
           <div className=" text-2xl font-semibold">₹{total}</div>
           <div className="text-[#979699] text-sm font-medium">{percentage}%</div>

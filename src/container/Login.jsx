@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import  Chart from '../assets/chart.png'
 
 const apiCall = (endpoint, apiConfig = {}) => {
-  return fetch(`https://7603-103-181-238-106.ngrok-free.app/api/${endpoint}`, {
+  return fetch(`https://be2e-103-181-238-106.ngrok-free.app/api/${endpoint}`, {
     method: 'get',
     headers: new Headers({
       "ngrok-skip-browser-warning": "69420",

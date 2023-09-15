@@ -20,15 +20,13 @@ const LABELS = [
   'Entertainment',
 ]
 
-const data = {
-    labels: LABELS,
-    datasets: [{
-      label: 'Spending: ',
-      data: [300, 50, 100, 400],
-      backgroundColor: BG_COLOR,
-      hoverOffset: 4
-    }]
-  };
+function getRandomInt(min, max) {
+  min = Math.ceil(min); // Round up the minimum value
+  max = Math.floor(max); // Round down the maximum value
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 
 
   const options = {
@@ -63,11 +61,26 @@ const SpendingPie = () => {
     ];
 
     const [filterOptions, setFilterOptions] = useState(FILTER_OPTIONS[2])
-    const handleFilterSelection = (val) => setFilterOptions(val);
+    const generateData = () => Array.from({length: 4}, () => getRandomInt(500, 10000))
+    const [spend, setSpend] = useState(generateData)
+    const data = {
+      labels: LABELS,
+      datasets: [{
+        label: 'Spending: ',
+        data: spend,
+        backgroundColor: BG_COLOR,
+        hoverOffset: 4
+      }]
+    };
+    const handleFilterSelection = (val) => {
+      setSpend(generateData())
+      setFilterOptions(val);
+    }
+  
     return (
         <div className="p-6 rounded-3xl shadow-card  w-[550px] bg-white">
             <div className="flex justify-between items-center">
-                <h2 className="text-lg text font-black mr-4">All Expenses</h2>
+                <h2 className="text-lg text font-semibold mr-4 text-primary">All Expenses</h2>
                 <Select value={filterOptions} options={FILTER_OPTIONS} onChange={handleFilterSelection} />
             </div>
             <div className="w-[200px] h-[200px] mx-auto mt-10">
@@ -78,7 +91,7 @@ const SpendingPie = () => {
                 LABELS.map((label, index) => {
                   return (
                     <div className="flex items-center gap-x-2" key={label}>
-                      <div className="w-6 h-2 rounded-full" style={{backgroundColor: BG_COLOR[index]}} />
+                      <div className="w-3 h-2 rounded-full" style={{backgroundColor: BG_COLOR[index]}} />
                       <p className="text-secondary text-xs">{label}</p>
                   </div>
                   )
