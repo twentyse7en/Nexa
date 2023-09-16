@@ -5,7 +5,7 @@ import Transactions from './Transactions';
 
 
 const PrivateRoute = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = localStorage.getItem('userId');
 
   if (!isLoggedIn) {
     return <Navigate to={'/login'} />;

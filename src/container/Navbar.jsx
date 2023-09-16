@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { ReactComponent as Dashboard } from "../assets/dashboard.svg";
 import { ReactComponent as Transaction } from "../assets/transfer.svg";
 import { ReactComponent as LeftArrow } from "../assets/LeftArrow.svg";
@@ -9,6 +11,8 @@ import { ReactComponent as ContactIcon } from "../assets/contact.svg";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const menuItems = [
     {
       headIcon: <Dashboard />,
@@ -37,6 +41,11 @@ const Navbar = () => {
     }
   ];
   const currentPath = useLocation().pathname;
+
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+    navigate('/login');
+  }
 
   const renderNavabrItems = (headIcon, title, href) => {
     return (
@@ -70,7 +79,7 @@ const Navbar = () => {
             </div>
             <div className="font-bold">Contact us</div>
           </button>
-          <button className="w-full flex items-center cursor-pointer hover:bg-[#E4E3FF] hover:text-primary text-[#A1A0BD] px-7 py-4 gap-4 rounded-md">
+          <button onClick={handleLogout} className="w-full flex items-center cursor-pointer hover:bg-[#E4E3FF] hover:text-primary text-[#A1A0BD] px-7 py-4 gap-4 rounded-md">
             <div>
               <LeftArrow />
             </div>
